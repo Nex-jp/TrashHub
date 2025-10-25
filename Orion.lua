@@ -17,8 +17,8 @@ local OrionLib = {
 			Second = Color3.fromRGB(240, 180, 190),
 			Stroke = Color3.fromRGB(200, 140, 150),
 			Divider = Color3.fromRGB(255, 255, 255),
-			Text = Color3.fromRGB(255, 182, 193),
-			TextDark = Color3.fromRGB(255, 105, 180),
+			Text = Color3.fromRGB(255, 255, 255),
+			TextDark = Color3.fromRGB(255, 255, 255),
 		}
 	},
 	SelectedTheme = "Default",
@@ -2001,5 +2001,6 @@ end
 function OrionLib:Destroy()
 	Orion:Destroy()
 end
+
 
 return OrionLib
