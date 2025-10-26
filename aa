@@ -13,11 +13,11 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-		Main = Color3.fromRGB(10, 0, 150),
-		Second = Color3.fromRGB(8, 1, 107),   -- セカンダリ: 少し明るめの青
-		Stroke = Color3.fromRGB(2, 45, 180),    -- 枠線など: 落ち着いた濃い青
-		Divider = Color3.fromRGB(255, 255, 255),-- 区切り線: 淡い水色
-		Text = Color3.fromRGB(255, 255, 255),
+		Main = Color3.fromRGB(0, 119, 255),      -- 鮮やかな青（Orionの宇宙感・近未来感）
+		Second = Color3.fromRGB(10, 10, 25),     -- 深いネイビー（背景・夜空イメージ）
+		Stroke = Color3.fromRGB(40, 80, 150),    -- 枠線にほんのり明るい青み
+		Divider = Color3.fromRGB(20, 20, 35),    -- 区切り線や分割用
+		Text = Color3.fromRGB(230, 240, 255),
 		TextDark = Color3.fromRGB(200, 210, 255)
 		}
 	},
