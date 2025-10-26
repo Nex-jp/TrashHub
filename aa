@@ -12,7 +12,7 @@ local OrionLib = {
 	Connections = {},
 	Flags = {},
 	Themes = {
-		Default = {
+		Trashhub = {
 		Main = Color3.fromRGB(8, 8, 8),
 		Second = Color3.fromRGB(10, 10, 10),
 		Stroke = Color3.fromRGB(30, 30, 30),
@@ -21,12 +21,11 @@ local OrionLib = {
 		TextDark = Color3.fromRGB(110, 110, 110), 
 		}
 	},
-	SelectedTheme = "Default",
+	SelectedTheme = "Trashhub",
 	Folder = nil,
 	SaveCfg = false
 }
 
---Feather Icons https://github.com/evoincorp/lucideblox/tree/master/src/modules/util - Created by 7kayoh
 local Icons = {}
 
 local Success, Response = pcall(function()
@@ -50,7 +49,7 @@ local Orion = Instance.new("ScreenGui")
 local Modal = Instance.new("TextButton")
 
 local FocusDrag = nil
-Orion.Name = "OrionUI"
+Orion.Name = "TrashhubUI"
 
 
 getgenv().gethui = function() return game.CoreGui end
@@ -1124,7 +1123,7 @@ function OrionLib:MakeWindow(WindowConfig)
 				SliderConfig.Default = SliderConfig.Default or 50
 				SliderConfig.Callback = SliderConfig.Callback or function() end
 				SliderConfig.ValueName = SliderConfig.ValueName or ""
-				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(9, 149, 98)
+				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(255, 255, 255)
 				SliderConfig.Flag = SliderConfig.Flag or nil
 				SliderConfig.Save = SliderConfig.Save or false
 
