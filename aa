@@ -5,7 +5,7 @@ local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
 local CoreGui = game:GetService("CoreGui")
-
+Interface Hidden
 local OrionLib = {
 	Elements = {},
 	ThemeObjects = {},
@@ -741,43 +741,43 @@ function OrionLib:MakeWindow(WindowConfig)
 			UnlockMouse(false)
 		end
 
-OrionLib:MakeNotification({
-	Name = "UI has been hidden.",
-	Content = "On mobile, tap Open to show the UI. On PC, press the K key to open it.",
-	Time = 3
-})
+		OrionLib:MakeNotification({
+			Name = "UI has been hidden.",
+			Content = "Press "  .. WindowConfig.KeyToOpenWindow .. " to reopen the UI. ",
+			Time = 3
+		})
 
-showMobileOpenButton()
-WindowConfig.CloseCallback()
+		showMobileOpenButton()
+		WindowConfig.CloseCallback()
+	end)
 
-AddConnection(UserInputService.InputBegan, function(Input, Focus)
-	if Focus then return end -- 文字入力中などを無視
-	
-	if Input.KeyCode == Enum.KeyCode[WindowConfig.KeyToOpenWindow] then
-		UIHidden = not UIHidden
-		MainWindow.Visible = not UIHidden
+	AddConnection(UserInputService.InputBegan, function(Input, Focus)
+		if not Focus then
+			if Input.KeyCode == Enum.KeyCode[WindowConfig.KeyToOpenWindow] and UIHidden then
+				MainWindow.Visible = true
+				UIHidden = false
+				if WindowConfig.FreeMouse then
+					UnlockMouse(true)
+				end
 
-		if WindowConfig.FreeMouse then
-			UnlockMouse(not UIHidden)
+				showMobileOpenButton()
+			elseif Input.KeyCode == Enum.KeyCode[WindowConfig.KeyToOpenWindow] and not UIHidden then
+				MainWindow.Visible = false
+				UIHidden = true
+
+				if WindowConfig.FreeMouse then
+					UnlockMouse(false)
+				end
+				OrionLib:MakeNotification({
+					Name = "UI has been hidden.",
+					Content = "Press "  .. WindowConfig.KeyToOpenWindow .. " to reopen the UI. ",
+					Time = 3
+				})
+
+				showMobileOpenButton()
+			end
 		end
-
-		if UIHidden then
-			OrionLib:MakeNotification({
-				Name = "Interface Hidden",
-				Content = "On mobile, tap Open to show the UI. On PC, press the K key to open it.",
-				Time = 3
-			})
-			showMobileOpenButton()
-		else
-			OrionLib:MakeNotification({
-				Name = "Interface Opened",
-				Content = "Press K (PC) or tap Close (Mobile) to hide the UI.",
-				Time = 3
-			})
-			hideMobileOpenButton() -- 開いたら Open ボタンを隠す
-		end
-	end
-end)
+	end)
 
 	AddConnection(MinimizeBtn.MouseButton1Up, function()
 		if Minimized then
@@ -1124,7 +1124,7 @@ end)
 				SliderConfig.Default = SliderConfig.Default or 50
 				SliderConfig.Callback = SliderConfig.Callback or function() end
 				SliderConfig.ValueName = SliderConfig.ValueName or ""
-				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(9, 149, 98)
+				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(255, 255, 255)
 				SliderConfig.Flag = SliderConfig.Flag or nil
 				SliderConfig.Save = SliderConfig.Save or false
 
