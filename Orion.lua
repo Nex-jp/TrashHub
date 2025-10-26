@@ -14,7 +14,7 @@ local OrionLib = {
 	Themes = {
 		Default = {
 		Main = Color3.fromRGB(0, 19, 163),      -- メイン: 鮮やかなブルー
-		Second = Color3.fromRGB(25, 90, 255),   -- セカンダリ: 少し明るめの青
+		Second = Color3.fromRGB(0, 6, 46),   -- セカンダリ: 少し明るめの青
 		Stroke = Color3.fromRGB(2, 45, 180),    -- 枠線など: 落ち着いた濃い青
 		Divider = Color3.fromRGB(180, 200, 255),-- 区切り線: 淡い水色
 		Text = Color3.fromRGB(255, 255, 255),   -- テキスト: 白
@@ -2004,3 +2004,4 @@ end
 
 
 return OrionLib
+
