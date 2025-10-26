@@ -742,8 +742,8 @@ function OrionLib:MakeWindow(WindowConfig)
 		end
 
 		OrionLib:MakeNotification({
-			Name = "UI has been hidden.",
-			Content = "Press "  .. WindowConfig.KeyToOpenWindow .. " to reopen the UI. ",
+			Name = "Interface Hidden",
+			Content = "Tap "  .. WindowConfig.KeyToOpenWindow .. " to reopen the interface",
 			Time = 3
 		})
 
@@ -769,8 +769,8 @@ function OrionLib:MakeWindow(WindowConfig)
 					UnlockMouse(false)
 				end
 				OrionLib:MakeNotification({
-					Name = "UI has been hidden.",
-					Content = "Press "  .. WindowConfig.KeyToOpenWindow .. " to reopen the UI. ",
+					Name = "Interface Hidden",
+					Content = "Tap "  .. WindowConfig.KeyToOpenWindow .. " to reopen the interface",
 					Time = 3
 				})
 
@@ -1124,7 +1124,7 @@ function OrionLib:MakeWindow(WindowConfig)
 				SliderConfig.Default = SliderConfig.Default or 50
 				SliderConfig.Callback = SliderConfig.Callback or function() end
 				SliderConfig.ValueName = SliderConfig.ValueName or ""
-				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(255, 255, 255)
+				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(9, 149, 98)
 				SliderConfig.Flag = SliderConfig.Flag or nil
 				SliderConfig.Save = SliderConfig.Save or false
 
