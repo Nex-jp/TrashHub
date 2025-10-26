@@ -13,7 +13,7 @@ local OrionLib = {
 	Flags = {},
 	Themes = {
 		Default = {
-		Main = Color3.fromRGB(3, 61, 252),      -- メイン: 鮮やかなブルー
+		Main = Color3.fromRGB(0, 19, 163),      -- メイン: 鮮やかなブルー
 		Second = Color3.fromRGB(25, 90, 255),   -- セカンダリ: 少し明るめの青
 		Stroke = Color3.fromRGB(2, 45, 180),    -- 枠線など: 落ち着いた濃い青
 		Divider = Color3.fromRGB(180, 200, 255),-- 区切り線: 淡い水色
@@ -2001,5 +2001,6 @@ end
 function OrionLib:Destroy()
 	Orion:Destroy()
 end
+
 
 return OrionLib
