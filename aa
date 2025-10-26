@@ -24,16 +24,16 @@ local OrionLib = {
 			TextDark = Color3.fromRGB(150, 150, 150)
 		},
 
-		Trash = {
-			Main = Color3.fromRGB(8, 8, 8),
-			Second = Color3.fromRGB(10, 10, 10),
-			Stroke = Color3.fromRGB(30, 30, 30),
-			Divider = Color3.fromRGB(30, 30, 30),
-			Text = Color3.fromRGB(110, 110, 110),
-			TextDark = Color3.fromRGB(110, 110, 110), 
+		Bliz_T = {
+			Main = Color3.fromRGB(0, 0, 0), -- Preto para o fundo
+			Second = Color3.fromRGB(20, 20, 20), -- Cinza bem escuro para contraste
+			Stroke = Color3.fromRGB(100, 150, 255), -- Azul bebê claro para detalhes
+			Divider = Color3.fromRGB(80, 120, 200), -- Azul bebê mais escuro para divisores
+			Text = Color3.fromRGB(180, 220, 255), -- Azul bebê claro para textos
+			TextDark = Color3.fromRGB(150, 180, 230) -- Azul bebê amarelado para texto secundário
 		}
 	},
-	SelectedTheme = "Trash",
+	SelectedTheme = "Bliz_T",
 	Folder = nil,
 	SaveCfg = false
 }
@@ -1214,7 +1214,7 @@ function OrionLib:MakeWindow(WindowConfig)
 				SliderConfig.Default = SliderConfig.Default or 50
 				SliderConfig.Callback = SliderConfig.Callback or function() end
 				SliderConfig.ValueName = SliderConfig.ValueName or ""
-				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(255, 255, 255)
+				SliderConfig.Color = SliderConfig.Color or Color3.fromRGB(9, 149, 98)
 				SliderConfig.Flag = SliderConfig.Flag or nil
 				SliderConfig.Save = SliderConfig.Save or false
 
