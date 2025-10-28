@@ -24,16 +24,16 @@ local OrionLib = {
 			TextDark = Color3.fromRGB(150, 150, 150)
 		},
 
-		Bliz_T = {
-			Main = Color3.fromRGB(0, 0, 0), -- Preto para o fundo
-			Second = Color3.fromRGB(20, 20, 20), -- Cinza bem escuro para contraste
-			Stroke = Color3.fromRGB(100, 150, 255), -- Azul bebê claro para detalhes
-			Divider = Color3.fromRGB(80, 120, 200), -- Azul bebê mais escuro para divisores
-			Text = Color3.fromRGB(180, 220, 255), -- Azul bebê claro para textos
-			TextDark = Color3.fromRGB(150, 180, 230) -- Azul bebê amarelado para texto secundário
+		Trash = {
+			Main = Color3.fromRGB(8, 8, 8),
+			Second = Color3.fromRGB(10, 10, 10),
+			Stroke = Color3.fromRGB(30, 30, 30),
+			Divider = Color3.fromRGB(30, 30, 30),
+			Text = Color3.fromRGB(110, 110, 110),
+			TextDark = Color3.fromRGB(110, 110, 110), 
 		}
 	},
-	SelectedTheme = "Bliz_T",
+	SelectedTheme = "Trash",
 	Folder = nil,
 	SaveCfg = false
 }
@@ -46,8 +46,7 @@ local Success, Response = pcall(function()
 end)
 
 if not Success then
-	warn("\nOrion Library - Failed to load Feather Icons. Error code: " .. Response .. "\n")
-end	
+end
 
 local function GetIcon(IconName)
 	if Icons[IconName] ~= nil then
@@ -63,7 +62,7 @@ local Orion = Instance.new("ScreenGui")
 
 local FocusDrag = nil
 
-Orion.Name = "OrionBliz"
+Orion.Name = "OrionTrash"
 
 getgenv().gethui = function() return game.CoreGui end
 
@@ -752,8 +751,8 @@ function OrionLib:MakeWindow(WindowConfig)
 		end
 		
 		OrionLib:MakeNotification({
-			Name = "Interface Hidden",
-			Content = "Tap "  .. WindowConfig.KeyToOpenWindow .. " to reopen the interface",
+			Name = "UI has been hidden.",
+			Content = "Press "  .. WindowConfig.KeyToOpenWindow .. " to reopen the UI. ",
 			Time = 3
 		})
 
@@ -779,8 +778,8 @@ function OrionLib:MakeWindow(WindowConfig)
 					UnlockMouse(false)
 				end
 				OrionLib:MakeNotification({
-					Name = "Interface Hidden",
-					Content = "Tap "  .. WindowConfig.KeyToOpenWindow .. " to reopen the interface",
+					Name = "UI has been hidden.",
+					Content = "Press "  .. WindowConfig.KeyToOpenWindow .. " to reopen the UI. ",
 					Time = 3
 				})
 
@@ -2595,24 +2594,5 @@ end
 function OrionLib:Destroy()
 	Orion:Destroy()
 end
-
---[[
-
-local Window = OrionLib:MakeWindow({Name = "aaa", HidePremium = true, SaveConfig = false, ConfigFolder = "hentai", IntroEnabled = false, KeyToOpenWindow = "M", FreeMouse = true})
-
-local Main_Tab = Window:MakeTab({
-	Name = "Combat",
-	Icon = "rbxassetid://7485051715",
-	PremiumOnly = false
-})
-
-Main_Tab:AddToggle({
-	Name = "This is a toggle!",
-	Default = false,
-	Callback = function(Value)
-		print(Value)
-	end    
-})
-]]--
 
 return OrionLib
