@@ -578,39 +578,6 @@ function OrionLib:MakeWindow(WindowConfig)
     MakeElement("Padding", 8, 0, 0, 8)
 }), "Divider")
 
-local SearchBar = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(35, 35, 35), 0, 6), {
-    Size = UDim2.new(1, -16, 0, 35),
-    Position = UDim2.new(0, 8, 0, 8),
-    Parent = WindowStuff,
-}), {
-    AddThemeObject(MakeElement("Stroke"), "Stroke"),
-    SetProps(MakeElement("TextBox"), {
-        PlaceholderText = "Search...",
-        Text = "",
-        TextColor3 = Color3.fromRGB(240, 240, 240),
-        PlaceholderColor3 = Color3.fromRGB(130, 130, 130),
-        Font = Enum.Font.Gotham,
-        TextSize = 14,
-        BackgroundTransparency = 1,
-        Size = UDim2.new(1, -20, 1, 0),
-        Position = UDim2.new(0, 10, 0, 0),
-        ClearTextOnFocus = false
-    })
-}), "Second")
-
-SearchBar.ClipsDescendants = true
-
-local SearchBox = SearchBar:FindFirstChildWhichIsA("TextBox")
-SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
-    local keyword = string.lower(SearchBox.Text)
-    for _, tab in pairs(TabHolder:GetChildren()) do
-        if tab:IsA("TextButton") and tab:FindFirstChild("Title") then
-            local visible = string.find(string.lower(tab.Title.Text), keyword) ~= nil
-            tab.Visible = visible or keyword == ""
-        end
-    end
-end)
-
 	AddConnection(TabHolder.UIListLayout:GetPropertyChangedSignal("AbsoluteContentSize"), function()
 		TabHolder.CanvasSize = UDim2.new(0, 0, 0, TabHolder.UIListLayout.AbsoluteContentSize.Y + 16)
 	end)
